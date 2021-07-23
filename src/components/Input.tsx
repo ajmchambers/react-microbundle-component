@@ -1,6 +1,7 @@
 import * as React from "react";
 import classNames from 'classnames';
 import "./Input.scss";
+import { Alert } from "./Alert";
 
 export interface InputProps {
   id?: string;
@@ -19,7 +20,8 @@ export interface InputProps {
     | "url";
   required?: boolean;
   disabled?: boolean;
-  color?: "danger" | "success";
+  variant?: "primary" | "danger" | "success";
+  alertText?: string;
   onFocus?: (e?: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (e?: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e?: React.FocusEvent<HTMLInputElement>) => void;
@@ -34,19 +36,23 @@ export const Input = ({
   inputmode = "text",
   required = false,
   disabled = false,
-  color,
+  alertText,
+  variant,
   ...props
 }: InputProps): JSX.Element => {
   return (
-    <React.Fragment>
+    <div className={classNames({
+      "fgo-input": true,
+      "fgo-input--primary": !disabled && variant === "primary",
+      "fgo-input--danger": !disabled && variant === "danger",
+      "fgo-input--success": !disabled && variant === "success",
+      "fgo-input--locked": !!disabled,
+    })}>
       <input
         name={name}
         type={type}
         className={classNames({
-          "fgo-input": true,
-          "fgo-input--danger": !disabled && color === "danger",
-          "fgo-input--success": !disabled && color === "success",
-          "fgo-input--locked": !!disabled,
+          "fgo-input__element": true,
         })}
         placeholder={placeholder}
         id={id}
@@ -57,7 +63,12 @@ export const Input = ({
         disabled={!!disabled}
         {...props}
       />
-    </React.Fragment>
+      {alertText && (
+        <Alert variant={variant}>
+          {alertText}
+        </Alert>
+      )}
+    </div>
   );
 };
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>react microbundle component</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        padding: 1rem;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Make the demo working in IE11 -->
+    <script
+      crossorigin="anonymous"
+      src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CArray.prototype.fill"
+      defer
+    ></script>
+
+    <script src="index.tsx" defer></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+@import "../css/variables";
+
+.fgo-alert {
+  font-size: 1.2rem;
+  display: block;
+  user-select: none;
+  cursor: default;
+  padding: .8rem 1rem;
+  margin-bottom: 1rem;
+  border: .2rem solid $color-grey-light-1;
+  border-radius: .3rem;
+
+  &--primary {
+    color: $color-primary-dark;
+    background-color: $color-primary-light;
+    border-color: $color-primary-medium;
+  }
+
+  &--danger {
+    color: $color-danger-dark;
+    background-color: $color-danger-light;
+    border-color: $color-danger-medium;
+  }
+
+  &--success {
+    color: $color-success-dark;
+    background-color: $color-success-light;
+    border-color: $color-success-medium;
+  }
+}

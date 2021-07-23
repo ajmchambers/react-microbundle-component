@@ -29,8 +29,9 @@
   ],
   "scripts": {
     "clean": "rimraf dist/",
+    "build": "npm run clean && npm run bundle",
     "bundle": "microbundle build --entry src/index.ts --jsx React.createElement --name react-microbundle-component",
-    "build": "npm run clean && npm run bundle"
+    "start-demo": "parcel demo/src/index.html --out-dir demo/dist --open"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +40,7 @@
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
     "microbundle": "^0.13.3",
+    "parcel-bundler": "^1.12.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",

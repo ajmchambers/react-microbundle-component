@@ -1,28 +1,11 @@
-$color-primary: #0A2B61;
-
-$color-grey-light-1: #f7f7f7;
-$color-grey-light-2: #E6E6E6;
-
-$color-grey-dark-1: #676767;
-$color-grey-dark-2: #A4A4A4;
-$color-grey-dark-3: #333;
-
-$color-white: #fff;
-$color-black: #000;
-
-$color-danger-light: #f8d7da;
-$color-danger-medium: #f5c6cb;
-$color-danger-dark: #721c24;
-
-$color-success-light: #c3e6cb;
-$color-success-medium: #ade7bb;
-$color-success-dark: #155724;
+@import "../css/variables";
 
 .fgo-input {
+  box-sizing: border-box;
   font-size: 1.8rem;
   color: $color-primary;
   font-family: inherit;
-  padding: .8rem 1rem;
+  padding: none;
   border-radius: .3rem;
   background-color: $color-white;
   border: .2rem solid $color-grey-light-1;
@@ -30,67 +13,175 @@ $color-success-dark: #155724;
   display: block;
   appearance: none;
 
-  &[type="range"],
-  &[type='date'],
-  &[type='time'],
-  &:matches([type="password"],[type="search"]) {
-    appearance: none;
-  }
-
-  &:focus,
-  &:active {
-    outline: none;
+  &:focus-within {
     border-color: $color-grey-dark-1;
   }
 
-  &::placeholder {
-    color: $color-grey-dark-2;
-  }
+  &--primary {
+    border-color: $color-primary-medium;
 
-  &--danger {
-    border-color: $color-danger-medium;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-width: 0;
-  }
-
-  &[type='date'],
-  &[type='time'] {
-    min-height: 4.2rem;
+    &:focus-within {
+      border-color: $color-primary-dark;
+    }
   }
 
   &--success {
     border-color: $color-success-medium;
 
-    &:focus,
-    &:active {
-      border-color: $color-success-light;
+    &:focus-within {
       border-color: $color-success-dark;
     }
   }
 
   &--danger {
     border-color: $color-danger-medium;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-width: 0;
 
-    &:focus,
-    &:active {
+    &:focus-within {
       border-color: $color-danger-dark;
     }
   }
 
-  &--locked {
-    border-color: $color-grey-dark-1;
-    color: $color-grey-dark-3;
-    background: none;
-    opacity: 1;
+  & > .fgo-input__element {
+    width: 100%;
+    display: block;
+    appearance: none;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 1.8rem;
+    color: $color-primary;
+    font-family: inherit;
+    padding: .8rem 1rem;
+
+    &[type="range"],
+    &[type='date'],
+    &[type='time'],
+    &:matches([type="password"],[type="search"]) {
+      appearance: none;
+    }
 
     &:focus,
     &:active {
-      border-color: $color-grey-dark-1;
-      color: $color-grey-dark-3;
+      outline: none;
     }
   }
+
+  & > .fgo-alert {
+    border: none;
+    margin: 0;
+    border-radius: 0;
+  }
 }
+
+// .fgo-input {
+//   box-sizing: border-box;
+//   font-size: 1.8rem;
+//   color: $color-primary;
+//   font-family: inherit;
+//   padding: .8rem 1rem;
+//   border-radius: .3rem;
+//   background-color: $color-white;
+//   border: .2rem solid $color-grey-light-1;
+//   width: 100%;
+//   display: block;
+//   appearance: none;
+
+  
+
+//   &:focus,
+//   &:active {
+//     outline: none;
+//     border-color: $color-grey-dark-1;
+//   }
+
+//   &::placeholder {
+//     color: $color-grey-dark-2;
+//   }
+
+//   &--danger {
+//     border-color: $color-danger-medium;
+//     border-bottom-right-radius: 0;
+//     border-bottom-left-radius: 0;
+//     border-bottom-width: 0;
+//   }
+
+//   &[type='date'],
+//   &[type='time'] {
+//     min-height: 4.2rem;
+//   }
+
+//   &--success {
+//     border-color: $color-success-medium;
+
+//     &:focus,
+//     &:active {
+//       border-color: $color-success-dark;
+//     }
+//   }
+
+//   &--danger {
+//     border-color: $color-danger-medium;
+//     border-bottom-right-radius: 0;
+//     border-bottom-left-radius: 0;
+//     border-bottom-width: 0;
+
+//     &:focus,
+//     &:active {
+//       border-color: $color-danger-dark;
+//     }
+//   }
+
+//   &--locked {
+//     border-color: $color-grey-dark-1;
+//     color: $color-grey-dark-3;
+//     background: none;
+//     opacity: 1;
+
+//     &:focus,
+//     &:active {
+//       border-color: $color-grey-dark-1;
+//       color: $color-grey-dark-3;
+//     }
+//   }
+
+//   &--sibling-alert {
+//     border-bottom-right-radius: 0;
+//     border-bottom-left-radius: 0;
+//     border-bottom-width: 0;
+
+//     & + .fgo-alert--sibling {
+//       border-top-right-radius: 0;
+//       border-top-left-radius: 0;
+//       border-top: 0;
+//     }
+
+//     &:focus + .fgo-alert--sibling.fgo-alert--primary,
+//     &:active + .fgo-alert--sibling.fgo-alert--primary {
+//       border-color: $color-primary-dark;
+//     }
+
+//     &:focus + .fgo-alert--sibling.fgo-alert--success,
+//     &:active + .fgo-alert--sibling.fgo-alert--success {
+//       border-color: $color-success-dark;
+//     }
+
+//     &:focus + .fgo-alert--sibling.fgo-alert--danger,
+//     &:active + .fgo-alert--sibling.fgo-alert--danger {
+//       border-color: $color-danger-dark;
+//     }    
+//   }
+// }
+
+// &__input:focus + &__alert,
+//   &__input:active + &__alert,
+//   &__textarea:focus + &__alert,
+//   &__textarea:active + &__alert {
+//     border-color: $color-danger-dark;
+//   }
+
+//   &__input + &__alert,
+//   &__textarea + &__alert,
+//   &__select + &__alert {
+//     border-radius: 0 0 .3rem .3rem;
+//     border-top: 0;
+//   }
