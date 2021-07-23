@@ -38,7 +38,7 @@ export const Input = ({
   ...props
 }: InputProps): JSX.Element => {
   return (
-    <>
+    <React.Fragment>
       <input
         name={name}
         type={type}
@@ -57,7 +57,7 @@ export const Input = ({
         disabled={!!disabled}
         {...props}
       />
-    </>
+    </React.Fragment>
   );
 };
 
